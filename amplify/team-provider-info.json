@@ -17,6 +17,7 @@
       },
       "function": {
         "amplifyIdentityBrokerPostDeployment": {
+          "hostingDomain": "https://master.d2cth33afvgu5w.amplifyapp.com",
           "deploymentBucketName": "amplify-amplify-identity-broker-prod-123514-deployment",
           "s3Key": "amplify-builds/amplifyIdentityBrokerPostDeployment-45424973376f4d777742-build.zip"
         },
@@ -71,7 +72,8 @@
         "amplifyIdentityBrokerCreateAuthChallenge": {
           "deploymentBucketName": "amplify-amplify-identity-broker-prod-123514-deployment",
           "s3Key": "amplify-builds/amplifyIdentityBrokerCreateAuthChallenge-6352764e583647445649-build.zip"
-        }
+        },
+        "amplifyIdentityBrokerAuthCustomMessage": {}
       }
     }
   }
