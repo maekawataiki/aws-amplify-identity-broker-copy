@@ -115,7 +115,7 @@
       ]
     }
   ],
-  "hostedUIDomainName": "amplifyidbroker-tmae-prod",
+  "hostedUIDomainName": "amplifyidbroker-demo",
   "authProvidersUserPool": [
     "Facebook",
     "Google",

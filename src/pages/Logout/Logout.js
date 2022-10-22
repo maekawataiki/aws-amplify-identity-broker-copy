@@ -85,7 +85,6 @@ class Logout extends React.Component {
 
 			// Sign the user out
 			Auth.signOut().then(() => {
-				console.log(window.location);
 				window.location.reload(); // Reload the page to handle the client redirect
 			});
 		}
