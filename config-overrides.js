@@ -53,27 +53,13 @@ if (appHostingDomain) {
 	fs.writeFileSync('./src/aws-exports.js', withBoth, 'utf-8');
 }
 
+const config_override = amplifyTeams[AMPLIFY_ENV].config_override;
+
 module.exports = function override(config, env) {
 	console.log("Build env is " + env);
-	let localConfig = {};
-	switch (AMPLIFY_ENV) {
-		case "devxrndev": localConfig = {
-			"providers": []
-		};
-			break;
-		case "prod": localConfig = {
-			"providers": ["AWSSSO", "OIDCIdentityProvider", "LoginWithAmazon", "Facebook", "Google"]
-		};
-			break;
-		case "preprod": localConfig = {
-			"providers": ["AWSSSO", "OIDCIdentityProvider", "LoginWithAmazon", "Facebook", "Google"]
-		};
-			break;
-		default:
-			localConfig = {
-				"providers": [],
-			};
-	}
+	let localConfig = config_override || {
+		"providers": [],
+	};
 
 	if (!config.externals) {
 		config.externals = {};
