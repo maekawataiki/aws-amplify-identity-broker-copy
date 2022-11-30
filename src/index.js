@@ -39,28 +39,29 @@ let amplifyConfig = {
 
 // If we have in parameter that means start a PKCE or Implict flow
 // We switch the clientId to submit the one from the client website
-let queryStringParams = new URLSearchParams(window.location.search);
-let clientId = queryStringParams.get("client_id");
-if (clientId) {
-	// We save the client ID, our Amplify auth will be based on that one
-	localStorage.setItem("client-id", clientId);
-} else {
-	// If there is no client-Id in query, we set back the last one used for login
-	// it may be undefined if we never logged in
-	clientId = localStorage.getItem("client-id");
-}
-if (clientId) {
-	// We configure the Amplify Auth component in the context of using a client website client-id
-	// if no clientId is found (direct login not from a client) the web client id of the broker will be used as default
-	amplifyConfig.aws_user_pools_web_client_id = clientId;
-}
+// let queryStringParams = new URLSearchParams(window.location.search);
+// let clientId = queryStringParams.get("client_id");
+// if (clientId) {
+// 	// We save the client ID, our Amplify auth will be based on that one
+// 	localStorage.setItem("client-id", clientId);
+// } else {
+// 	// If there is no client-Id in query, we set back the last one used for login
+// 	// it may be undefined if we never logged in
+// 	clientId = localStorage.getItem("client-id");
+// }
+// if (clientId) {
+// 	// We configure the Amplify Auth component in the context of using a client website client-id
+// 	// if no clientId is found (direct login not from a client) the web client id of the broker will be used as default
+// 	amplifyConfig.aws_user_pools_web_client_id = clientId;
+// }
+console.log("Client ID:  ", amplifyConfig.aws_user_pools_web_client_id);
 Amplify.configure(amplifyConfig);
 
 /*
  * App Routing
  * With "ProtectedRoute" we redirect user to Login if they are not signed in and _
  * we redirect user to Terms of Service (ToS) if a user not accepted the current ToS
- * 
+ *
  * If we route to a none existing page we will redirect to the "ErrorPage"
  */
 ReactDOM.render(
